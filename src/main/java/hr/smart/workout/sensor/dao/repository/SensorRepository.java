@@ -1,4 +1,4 @@
-package hr.smart.workout.sensor.dao;
+package hr.smart.workout.sensor.dao.repository;
 
 import hr.smart.workout.sensor.dao.entity.Sensor;
 import org.springframework.data.jpa.repository.JpaRepository;

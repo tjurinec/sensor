@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class SensorInput {
+public class SensorDto {
 
     private String value;
     private String type;

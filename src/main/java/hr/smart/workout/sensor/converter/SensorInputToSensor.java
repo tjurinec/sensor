@@ -1,12 +1,12 @@
 package hr.smart.workout.sensor.converter;
 
 import hr.smart.workout.sensor.dao.entity.Sensor;
-import hr.smart.workout.sensor.model.SensorInput;
+import hr.smart.workout.sensor.model.SensorDto;
 import org.modelmapper.AbstractConverter;
 
-public class SensorInputToSensor extends AbstractConverter<SensorInput, Sensor> {
+public class SensorInputToSensor extends AbstractConverter<SensorDto, Sensor> {
     @Override
-    protected Sensor convert(SensorInput sensorInput) {
+    protected Sensor convert(SensorDto sensorInput) {
         Sensor sensor = new Sensor();
         sensor.setValue(sensorInput.getValue());
         sensor.setType(sensorInput.getType());
