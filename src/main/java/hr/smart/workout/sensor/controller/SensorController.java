@@ -14,6 +14,8 @@ import hr.smart.workout.sensor.dao.entity.Sensor;
 import hr.smart.workout.sensor.model.SensorDto;
 import hr.smart.workout.sensor.service.SensorService;
 
+import java.util.List;
+
 @RestController
 public class SensorController {
 
@@ -29,5 +31,11 @@ public class SensorController {
     @GetMapping(path = "/sensor/{machineId}")
     public ResponseEntity<List<Sensor>> getSensor(@PathVariable String machineId) {
         return ResponseEntity.ok(sensorService.getSensorData(machineId));
+    }
+
+    @PostMapping(path = "/sensors")
+    public ResponseEntity saveSensorList(@RequestBody List<SensorInput> sensorInputList) {
+        sensorService.saveAllSensorInputs(sensorInputList);
+        return ResponseEntity.accepted().build();
     }
 }

@@ -1,5 +1,6 @@
 package hr.smart.workout.sensor.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -30,5 +31,14 @@ public class SensorService {
     public List<Sensor> getSensorData(String machineId) {
         List<Sensor> sensors = sensorRepository.findAllByMachineId(machineId);
         return sensors;
+    }
+
+    public void saveAllSensorInputs(List<SensorDto> sensorInputList) {
+        List<Sensor> sensorList = new ArrayList<>();
+        sensorInputList.forEach(sensorInput -> {
+            Sensor sensorIn = modelMapper.map(sensorInput, Sensor.class);
+            sensorList.add(sensorIn);
+        });
+        sensorRepository.saveAll(sensorList);
     }
 }
